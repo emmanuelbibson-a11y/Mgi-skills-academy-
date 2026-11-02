@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MGI Skills Academy | Practical Technical Training</title>
+<meta name="description" content="MGI Skills Academy offers practical training in Multi TV/DStv, CCTV, Double LNB and Bio-Digester Toilet Installation.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#home"><span class="brand-mark">MGI</span><span>MGI <b>Skills Academy</b></span></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav>
+      <a href="#home">Home</a><a href="#courses">Courses</a><a href="#how">How It Works</a><a href="#about">About</a>
+      <a class="nav-chat" href="#chat">Chat Admin</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">PRACTICAL • SKILL-BASED • GHANA</span>
+      <h1>Learn practical installation skills that can become a business.</h1>
+      <p class="lead">Start with our featured <strong>Multi TV / DStv Installation</strong> course, then build your skills across CCTV, Double LNB and Bio-Digester Toilet Installation.</p>
+      <div class="actions"><a class="btn primary" href="#courses">Explore Courses</a><a class="btn ghost" href="#chat">Chat with an Agent</a></div>
+      <div class="trust"><span>✓ Practical lessons</span><span>✓ Learn at your pace</span><span>✓ Mobile friendly</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="featured-tag">FEATURED COURSE</div>
+      <div class="dish">📡</div>
+      <h2>Multi TV / DStv Installation</h2>
+      <p>Learn satellite installation fundamentals, alignment, cabling, connections and troubleshooting.</p>
+      <div class="price">GHS 499</div>
+      <button class="btn primary full" onclick="openEnroll('Multi TV / DStv Installation',499)">Enroll Now</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="courses">
+<div class="container">
+  <div class="section-head"><div><span class="eyebrow">OUR COURSES</span><h2>Choose your skill</h2></div><p>Clear, practical training designed for people who want useful installation skills.</p></div>
+  <div class="courses">
+    <article class="course featured">
+      <span class="course-icon">📡</span><span class="pill">FIRST / FEATURED</span><h3>Multi TV / DStv Installation</h3><p>Satellite dish setup, signal alignment, cabling, decoder connections and troubleshooting.</p><strong>GHS 499</strong><button class="btn primary full" onclick="openEnroll('Multi TV / DStv Installation',499)">Enroll Now</button>
+    </article>
+    <article class="course"><span class="course-icon">📹</span><h3>CCTV Installation</h3><p>Camera placement, cabling, DVR/NVR setup, monitoring and basic troubleshooting.</p><strong>GHS 499</strong><button class="btn primary full" onclick="openEnroll('CCTV Installation',499)">Enroll Now</button></article>
+    <article class="course"><span class="course-icon">📡</span><h3>Double LNB Installation</h3><p>Learn LNB setup, satellite positioning, connections and signal optimization.</p><strong>GHS 399</strong><button class="btn primary full" onclick="openEnroll('Double LNB Installation',399)">Enroll Now</button></article>
+    <article class="course"><span class="course-icon">🚽</span><h3>Bio-Digester Toilet Installation</h3><p>Practical introduction to bio-digester toilet installation, layout, components and maintenance.</p><strong>GHS 499</strong><button class="btn primary full" onclick="openEnroll('Bio-Digester Toilet Installation',499)">Enroll Now</button></article>
+    <article class="course all"><span class="course-icon">🎓</span><span class="pill">FULL PACKAGE</span><h3>All Courses</h3><p>Access the complete training package covering all four skill areas.</p><strong>GHS 1,499</strong><button class="btn primary full" onclick="openEnroll('All Courses',1499)">Enroll Now</button></article>
+  </div>
+</div>
+</section>
+
+<section class="steps section" id="how"><div class="container">
+<div class="section-head"><div><span class="eyebrow">SIMPLE PROCESS</span><h2>How enrollment works</h2></div></div>
+<div class="step-grid">
+<div><b>01</b><h3>Choose a course</h3><p>Select the training you want to take.</p></div>
+<div><b>02</b><h3>Make payment</h3><p>Use the available Ghana payment option during enrollment.</p></div>
+<div><b>03</b><h3>Payment verified</h3><p>Your payment is checked before course access is activated.</p></div>
+<div><b>04</b><h3>Start learning</h3><p>Sign in and access your course materials.</p></div>
+</div></div></section>
+
+<section class="about section" id="about"><div class="container about-grid">
+<div><span class="eyebrow">ABOUT MGI</span><h2>Skills for real-world work.</h2><p>MGI Skills Academy is focused on practical technical training for learners who want to build useful installation skills and turn knowledge into opportunity.</p><p><strong>Multi Generation Installations and Trading</strong></p></div>
+<div class="contact-card"><h3>Need help?</h3><p>Chat directly with an administrator or agent before enrolling.</p><a class="btn primary full" href="#chat">Chat Administrator</a><p class="small">Email: emmanuelbibson@gmail.com</p></div>
+</div></section>
+
+<section class="cta" id="chat"><div class="container cta-inner"><div><span class="eyebrow">GET SUPPORT</span><h2>Have a question before you pay?</h2><p>Contact the academy administrator for course and enrollment assistance.</p></div><div class="actions"><a class="btn light" href="mailto:emmanuelbibson@gmail.com?subject=MGI%20Skills%20Academy%20Enquiry">Email Admin</a><a class="btn outline-light" href="https://wa.me/233544727850?text=Hello%20MGI%20Skills%20Academy%2C%20I%20need%20help%20with%20a%20course." target="_blank" rel="noopener">WhatsApp Agent</a></div></div></section>
+</main>
+
+<footer><div class="container footer"><span>© 2026 MGI Skills Academy • Multi Generation Installations and Trading</span><span>Practical skills. Real opportunities.</span></div></footer>
+
+<div class="modal" id="enrollModal" aria-hidden="true">
+ <div class="modal-box">
+  <button class="close" onclick="closeEnroll()">×</button>
+  <span class="eyebrow">ENROLLMENT</span><h2 id="modalCourse"></h2><p class="modal-price" id="modalPrice"></p>
+  <form id="enrollForm" onsubmit="submitEnrollment(event)">
+    <label>Full name<input id="name" required placeholder="Your full name"></label>
+    <label>Phone number<input id="phone" required placeholder="e.g. 024 XXX XXXX"></label>
+    <label>Email<input id="email" type="email" required placeholder="you@example.com"></label>
+    <button class="btn primary full" type="submit">Continue to Payment</button>
+  </form>
+  <p class="small note">Payment gateway connection will be activated here. Do not enter card or MoMo details into this demo form.</p>
+ </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
