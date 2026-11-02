@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MGI Payment Confirmation</title>
+</head>
+<body>
+  <h2>Checking your payment...</h2>
+  <p id="message">Please wait while we verify your payment.</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const reference = params.get("reference");
+
+    if (reference) {
+      document.getElementById("message").textContent =
+        "Payment received. Your payment reference is " + reference +
+        ". Please contact MGI Skills Academy if your course access is not activated.";
+    } else {
+      document.getElementById("message").textContent =
+        "Payment reference not found. Please contact the academy.";
+    }
+  </script>
+</body>
+</html>
