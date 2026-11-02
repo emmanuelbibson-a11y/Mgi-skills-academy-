@@ -8,12 +8,42 @@ function openEnroll(course,price){
 }
 function closeEnroll(){modal.classList.remove("show");modal.setAttribute("aria-hidden","true")}
 modal.addEventListener("click",e=>{if(e.target===modal)closeEnroll()});
-function submitEnrollment(e){
- e.preventDefault();
- const name=document.getElementById("name").value.trim();
- const phone=document.getElementById("phone").value.trim();
- const email=document.getElementById("email").value.trim();
- const subject=encodeURIComponent(`Enrollment enquiry: ${selectedCourse}`);
- const body=encodeURIComponent(`Hello MGI Skills Academy,\n\nI want to enroll in: ${selectedCourse}\nCourse price: GHS ${selectedPrice.toLocaleString()}\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nPlease send me the payment instructions.`);
- window.location.href=`mailto:emmanuelbibson@gmail.com?subject=${subject}&body=${body}`;
+
+async function submitEnrollment(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!name || !phone || !email || !selectedCourse) {
+    alert("Please complete all enrollment details.");
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/initialize-payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        course: selectedCourse
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.authorization_url) {
+      throw new Error(result.error || "Payment initialization failed");
+    }
+
+    window.location.href = result.authorization_url;
+
+  } catch (error) {
+    alert(error.message || "Unable to connect to Paystack.");
+  }
 }
