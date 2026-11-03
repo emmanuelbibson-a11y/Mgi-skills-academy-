@@ -11,17 +11,44 @@
   <p id="message">Please wait while we verify your payment.</p>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const reference = params.get("reference");
+    async function verifyPayment() {
+      const params = new URLSearchParams(window.location.search);
+      const reference = params.get("reference") || params.get("trxref");
 
-    if (reference) {
-      document.getElementById("message").textContent =
-        "Payment received. Your payment reference is " + reference +
-        ". Please contact MGI Skills Academy if your course access is not activated.";
-    } else {
-      document.getElementById("message").textContent =
-        "Payment reference not found. Please contact the academy.";
+      const message = document.getElementById("message");
+
+      if (!reference) {
+        message.textContent = "Payment reference not found.";
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/verify-payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ reference })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || "Payment verification failed.");
+        }
+
+        message.textContent =
+          "Payment verified successfully! Course: " +
+          result.course +
+          ". Please wait for course access confirmation.";
+
+      } catch (error) {
+        message.textContent = error.message +
+          " Please contact MGI Skills Academy.";
+      }
     }
+
+    verifyPayment();
   </script>
 </body>
 </html>
