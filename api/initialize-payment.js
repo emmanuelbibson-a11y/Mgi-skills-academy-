@@ -44,7 +44,7 @@ export default async function handler(req, res) {
           email,
           amount: courses[course] * 100,
           currency: "GHS",
-         callback_url: ${siteUrl.replace(//$/, '')}/payment-callback.html,
+       callback_url: `${siteUrl.replace(/\/$/, '')}/payment-callback.html`,
           metadata: {
             student_name: name,
             student_phone: phone,
